@@ -1,0 +1,30 @@
+type Company {
+    id: ID!
+    name: String!
+    description: String
+    address: String
+}
+
+type Department {
+    id: ID!
+    name: String!
+    description: String
+    company: [Company]!
+}
+
+type Employee {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    departmentId: Int!
+}
+
+# The Root Query for the application
+type Query {
+    findAllEmployees: [Employee]!
+}
+
+# The Root Mutation for the application
+type Mutation {
+    saveEmployee(firstName: String!, lastName: String!, departmentId: Int!) : Employee!
+}
